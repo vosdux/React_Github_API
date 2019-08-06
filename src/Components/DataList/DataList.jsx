@@ -1,23 +1,29 @@
 import React from 'react';
 
+import ErrorBlock from './DataBlock/ErrorBlock';
+import SuccesBlock from './DataBlock/SuccesBlock/SuccesBlock';
+import StartBlock from './DataBlock/StartBlock';
+
 import './DataList.css';
 
+
 const DataList = (props) => {
-    const { login, id, avatar_url, html_url, name, bio, public_repos, followers, created_at, updated_at } = props.result;
-    return (
-        <div className="data">
-            <img src={avatar_url} alt={`${login}_avatar`} className="avatar"/>
-            <span className="line">{`Login: ${login}`}</span>
-            <span className="line">{`id: ${id}`}</span>
-            <span className="line">{`Profile link: ${html_url}`}</span>
-            <span className="line">{`User name: ${name}`}</span>
-            <span className="line">{`Biography: ${bio}`}</span>
-            <span className="line">{`Number of rep: ${public_repos}`}</span>
-            <span className="line">{`Followers: ${followers}`}</span>
-            <span className="line">{`Create at: ${created_at}`}</span>
-            <span className="line">{`Update at: ${updated_at}`}</span>
-        </div>
-    );
+    const { login, message } = props.result;
+
+    if (message) {
+        return (
+            <ErrorBlock message={message} />
+        );
+    } else if (login) {
+        return (
+            <SuccesBlock result={props.result}/>
+        );
+    } else {
+        return (
+            <StartBlock />
+        );
+    }
+    
 }
 
 export default DataList;

@@ -1,14 +1,21 @@
-.data {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+.textBlock {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
 }
-.line {
-    font-size: 25px;
-    margin-bottom: 10px;
+
+.textBlock__title {
+    font-family: 'Titillium Web', sans-serif;
+    text-align: center;
+    color: #fff;
 }
-.avatar {
-    height: 250px;
-    width: 250px;
+
+.textBlock__text_weight_bold {
+    font-weight: bold;
 }
+
+.textBlock__title_status_error {
+    color: red;
+}
+

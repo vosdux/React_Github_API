@@ -3,19 +3,24 @@ import React, { Component } from 'react';
 import Title from './Components/Title/Title';
 import DataList from './Components/DataList/DataList';
 import Input from './Components/Input/Input';
+
+import './Fonts.css';
 import './App.css';
+
 
 const BASE_PATH = 'https://api.github.com/users/';
 
-class App extends Component {
-  state = {
-    query: 'vosdux',
-    result: {}
-  }
 
-  componentDidMount() {
-    const { query } = this.state;
-    this.fetchData(query);
+class App extends Component {
+  constructor() {
+    super()
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
+  state = {
+    query: '',
+    result: {},
+    status: ''
   }
 
   fetchData(query) {
@@ -26,15 +31,16 @@ class App extends Component {
   }
 
   setData(result) {
+    console.log(result);
     this.setState({
       result
     })
   }
 
-  handleInputChange({ target: value }) {
+  handleInputChange({ target: { value } }) {
     this.setState({
       query: value
-    })
+    });
   }
 
   onKeyPress( {key} ) {
@@ -45,14 +51,12 @@ class App extends Component {
   }
 
   render() {
-    const { result, query } = this.state;
-    console.log(result);
+    const { result } = this.state;
     return (
       <div className="wrapper">
         <Title />
         <Input 
           onChange={this.handleInputChange}
-          value={query}
           onKeyPress={this.onKeyPress}/>
         <DataList result={result}/>
       </div>

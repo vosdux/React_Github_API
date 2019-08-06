@@ -1,0 +1,15 @@
+.datas {
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    display: flex;
+    font-size: 20px;
+}
+
+.line__name {
+    font-weight: bold;
+    margin-right: 6px;
+}
