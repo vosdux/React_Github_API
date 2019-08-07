@@ -1,0 +1,11 @@
+.avatarWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+}
+.avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}

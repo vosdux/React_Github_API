@@ -10,7 +10,6 @@ import './App.css';
 
 const BASE_PATH = 'https://api.github.com/users/';
 
-
 class App extends Component {
   constructor() {
     super()
